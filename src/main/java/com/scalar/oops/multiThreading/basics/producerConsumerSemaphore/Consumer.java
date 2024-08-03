@@ -26,7 +26,7 @@ public class Consumer implements Runnable{
     }
 
     public void consumeItem() throws InterruptedException {
-        //System.out.println("Consumer <---> " + consumer_id);
+        //  System.out.println("Consumer <---> " + consumer_id);
         consumerSemaphore.acquire();
         store.removeItem(consumer_id);
         producerSemaphore.release();
