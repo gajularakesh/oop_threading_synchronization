@@ -23,3 +23,22 @@ public class DBC {
         return dbc;
     }
 }
+//public class DatabaseConnection {
+//
+//    private static DatabaseConnection instance;
+//
+//    private DatabaseConnection() {
+//        // Initialize the connection
+//    }
+//
+//    public static synchronized DatabaseConnection getInstance() {
+//        if (instance == null) {
+//            instance = new DatabaseConnection();
+//        }
+//        return instance;
+//    }
+//
+//    public void query(String sql) {
+//        // Execute SQL query
+//    }
+//}
