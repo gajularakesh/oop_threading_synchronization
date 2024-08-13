@@ -7,7 +7,7 @@ public class Student {
     private double psp;
     private String phone;
 
-    //Builder : checking parameter is valid or not before creating object;
+    //Builder : one of the use case is checking parameter is valid or not before creating object;
     private Student(Builder builder){
 
         if(builder.age > 100){//exmaple age if age is >100 will exception
@@ -19,7 +19,15 @@ public class Student {
         this.age = builder.age;
         this.phone = builder.phone;
     }
-
+    //why I wrote Builder class here why not separate
+    //what if we have 100 clasess we need to create 100 builder class which end up using huge space
+    //and 1 more thing is if we create separate class client should aware of
+    // builder class is there for student which is not a good practice
+    //student itself build the student builder class now no one know who is its builder class
+    //why static? bcz with out student object we can;t access the innerclass without static 1st student object
+    // need to be created then on top it we can call or create builder things
+    //if we use static we can create object for builder class with need of student object
+    //now builder class is dependent of outclass directly we can create builder object using student
     static class Builder{
         private String name;
         private int age;
