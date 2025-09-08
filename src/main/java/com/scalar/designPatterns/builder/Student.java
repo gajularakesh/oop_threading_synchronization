@@ -21,7 +21,7 @@ public class Student {
     }
     //why I wrote Builder class here why not separate
     //what if we have 100 clasess we need to create 100 builder class which end up using huge space
-    //and 1 more thing is if we create separate class client should aware of
+    //and 1 more thing is if we create separate class, client should aware of
     // builder class is there for student which is not a good practice
     //student itself build the student builder class now no one know who is its builder class
     //why static? bcz with out student object we can;t access the innerclass without static 1st student object

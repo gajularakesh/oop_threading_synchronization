@@ -1,4 +1,4 @@
-package com.scalar.oops.multiThreading.basics;
+package com.scalar.oops.multiThreading.basics.adderSubstractorMutex;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

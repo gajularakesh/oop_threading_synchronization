@@ -1,4 +1,4 @@
-package com.scalar.oops.multiThreading.basics;
+package com.scalar.oops.multiThreading.basics.callable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,34 +36,38 @@ public class MergeSorter implements Callable<List<Integer>> {
 
         MergeSorter mergeSorter1 = new MergeSorter(leftList, executor);
         Future<List<Integer>> futureLeftList =  executor.submit(mergeSorter1);
+
         MergeSorter mergeSorter2 = new MergeSorter(rightList, executor);
         Future<List<Integer>> futureRightList =  executor.submit(mergeSorter2);
 
-        ArrayList<Integer> sortedLeftList = new ArrayList<>();
-        ArrayList<Integer> sortedRightList = new ArrayList<>();
+        //ArrayList<Integer> sortedLeftList = new ArrayList<>();
+        //ArrayList<Integer> sortedRightList = new ArrayList<>();
 
-        sortedLeftList.addAll(futureLeftList.get());
-        sortedRightList.addAll(futureRightList.get());
+        //sortedLeftList.addAll(futureLeftList.get());
+        //sortedRightList.addAll(futureRightList.get());
 
         ArrayList<Integer> mergedList = new ArrayList<>();
 
         int i=0, j=0;
-        while(i < sortedLeftList.size() && j < sortedRightList.size()) {
+        while(i < futureLeftList.get().size() && j < futureRightList.get().size()) {
 
-            if(sortedLeftList.get(i) <= (sortedRightList.get(j))) {
-                mergedList.add(sortedLeftList.get(i));
+            if(futureLeftList.get().get(i) <= (futureRightList.get().get(j))) {
+                mergedList.add(futureLeftList.get().get(i));
                 i++;
             }
             else{
-                mergedList.add(sortedRightList.get(j));
+                mergedList.add(futureRightList.get().get(j));
                 j++;
             }
         }
-        if(i < sortedLeftList.size()) {
-            mergedList.addAll(sortedLeftList);
+        while (i < futureLeftList.get().size()) {
+            mergedList.add(futureLeftList.get().get(i));
+            i++;
         }
-        else {
-            mergedList.addAll(sortedRightList);
+
+        while (j < futureRightList.get().size()) {
+            mergedList.add(futureRightList.get().get(j));
+            j++;
         }
 
         return mergedList;

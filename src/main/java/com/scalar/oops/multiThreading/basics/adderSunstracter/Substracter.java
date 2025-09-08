@@ -1,4 +1,4 @@
-package com.scalar.oops.multiThreading.basics;
+package com.scalar.oops.multiThreading.basics.adderSunstracter;
 
 public class Substracter implements  Runnable{
 

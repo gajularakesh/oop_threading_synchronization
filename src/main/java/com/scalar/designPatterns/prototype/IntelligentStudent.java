@@ -7,7 +7,7 @@ public class IntelligentStudent extends Student {
 
     public IntelligentStudent(IntelligentStudent is) {
         super(is);
-        this.iq = iq;
+        //this.iq = is.iq;
     }
 
     public int getIq() {
